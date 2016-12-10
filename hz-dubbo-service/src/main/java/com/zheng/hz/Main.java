@@ -23,7 +23,7 @@ public class Main {
     }
 
     private static void startServer() {
-        context = new ClassPathXmlApplicationContext("application-context.xml", "dubbo-provider.xml");
+        context = new ClassPathXmlApplicationContext("spring/application-context.xml");
         context.start();
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {

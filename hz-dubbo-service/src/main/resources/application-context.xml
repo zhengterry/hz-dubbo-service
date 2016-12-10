@@ -19,4 +19,5 @@
         </property>
     </bean>
     <import resource="classpath*:mybatis/application-mybatis.xml" />
+    <import resource="classpath:dubbo-provider.xml" />
 </beans>
