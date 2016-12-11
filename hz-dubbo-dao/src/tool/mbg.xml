@@ -8,7 +8,7 @@
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://205.209.173.28:3306/hz"
+                        connectionURL="jdbc:mysql://222.73.139.41:3306/hz"
                         userId="hz"
                         password="123456">
         </jdbcConnection>
@@ -32,7 +32,7 @@
 
         <table tableName="person" domainObjectName="Person" >
             <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="ID" sqlStatement="DB2" identity="true" />
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
             <columnOverride column="DATE_FIELD" property="startDate" />
             <ignoreColumn column="FRED" />
             <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />

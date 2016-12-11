@@ -33,11 +33,32 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <finalName>hz-dubbo-service</finalName>
         <resources>
+            <!-- 移动配置文件 -->
             <resource>
                 <targetPath>${project.build.directory}/classes</targetPath>
                 <directory>src/main/resources</directory>
@@ -54,6 +75,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <!-- spring 启动xml -->
                     <include>application-context.xml</include>
                 </includes>
             </resource>
@@ -67,8 +89,10 @@
                     <classesDirectory>target/classes/</classesDirectory>
                     <archive>
                         <manifest>
+                            <!-- dubbo提供启动类 -->
                             <mainClass>com.alibaba.dubbo.container.Main</mainClass>
                             <addClasspath>true</addClasspath>
+                            <!-- dubbo启动类的jar所在位置 -->
                             <classpathPrefix>classes/lib/</classpathPrefix>
                         </manifest>
                         <manifestEntries>
@@ -77,6 +101,7 @@
                     </archive>
                 </configuration>
             </plugin>
+            <!-- 打包jar文件时，把项目所依赖的jar打入jar包中 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -90,6 +115,7 @@
                         <configuration>
                             <type>jar</type>
                             <includeTypes>jar</includeTypes>
+                            <!-- 项目所依赖的jar存放位置 -->
                             <outputDirectory>
                                 ${project.build.directory}/classes/lib
                             </outputDirectory>
